@@ -43,7 +43,7 @@ runs:
 
     - name: GitHub - Upload artifacts
       uses: softprops/action-gh-release@v2
-      if: {{ inputs.upload-artifacts }}
+      if: ${{ inputs.upload-artifacts }}
       with:
         files: |
           ${{ inputs.archive-file }}
