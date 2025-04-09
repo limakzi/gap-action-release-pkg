@@ -18,9 +18,9 @@ runs:
       run: |
          echo "::group:: Cleanup git and github related files"
          rm -rvf .github
-         rm -v .codecov.yaml
-         rm -v .gaplint.yml
-         rm -v requirements.txt
+         rm -fv .codecov.yaml
+         rm -fv .gaplint.yml
+         rm -fv requirements.txt
 
          echo "::group:: Cleanup macOS metadata"
          find . -name .DS_Store -exec rm -f {} +
