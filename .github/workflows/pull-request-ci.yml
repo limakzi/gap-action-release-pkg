@@ -14,11 +14,16 @@ jobs:
       # the target folder of the checkout action is removed
       - uses: actions/checkout@v4
         with:
-          submodules: 'true'
+          repository: gap-packages/example
+
+      - uses: actions/checkout@v4
+        with:
+          path: this-action/
+
       - name: gap -- setup
         uses: gap-actions/setup-gap@v2
 
       - name: gap -- build docs
         uses: gap-actions/build-pkg-docs@v1
 
-      - uses: ./
+      - uses: ./this-action/
