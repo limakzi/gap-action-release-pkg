@@ -33,4 +33,4 @@ runs:
       run: |
         mkdir -pv $(dirname ${{ inputs.archive-file }})
         touch ${{ inputs.archive-file }}
-        tar -czf ${{ inputs.archive-file }} --exclude=${{ inputs.archive-file }} --transform 's,^\.,${{ inputs.revision }},' .
+        tar -vczf ${{ inputs.archive-file }} --exclude=${{ inputs.archive-file }} --transform 's,^\.,${{ inputs.revision }},' .
