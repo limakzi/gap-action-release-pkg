@@ -13,7 +13,7 @@ inputs:
   upload-artifacts:
     description: "If the artifacts should be uploaded to GitHub"
     required: true
-    default: true
+    default: false
 runs:
   using: "composite"
   steps:
