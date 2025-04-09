@@ -1,5 +1,5 @@
 ---
-name: test actions
+name: Continuous Integration for action
 on:
   pull_request:
     branches:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   test:
-    name: latex ${{ matrix.use-latex }}
+    name: Test action
     runs-on: ubuntu-latest
     steps:
       # the order of the checkout actions is important because all contents of
