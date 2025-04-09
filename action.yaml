@@ -17,6 +17,7 @@ runs:
       shell: bash
       run: |
          echo "::group:: Cleanup git and github related files"
+         rm -rvf .git
          rm -rvf .github
          rm -fv .codecov.yaml
          rm -fv .gaplint.yml
