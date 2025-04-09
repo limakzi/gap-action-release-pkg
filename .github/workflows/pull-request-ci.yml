@@ -1,0 +1,24 @@
+---
+name: test actions
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    name: latex ${{ matrix.use-latex }}
+    runs-on: ubuntu-latest
+    steps:
+      # the order of the checkout actions is important because all contents of
+      # the target folder of the checkout action is removed
+      - uses: actions/checkout@v4
+        with:
+          submodules: 'true'
+      - name: gap -- setup
+        uses: gap-actions/setup-gap@v2
+
+      - name: gap -- build docs
+        uses: gap-actions/build-pkg-docs@v1
+
+      - uses: ./
