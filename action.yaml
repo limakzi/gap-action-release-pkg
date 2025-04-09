@@ -1,6 +1,8 @@
 ---
 name: "Prepare an archive tarball"
 description: "Be aware that the only responsibility of this repository is validation and archive tarball preparation."
+icon: "archive"
+color: "black"
 inputs:
   revision:
     description: "The revision to be used in the tarball"
