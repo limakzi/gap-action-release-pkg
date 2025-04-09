@@ -10,6 +10,10 @@ inputs:
     description: "The name of the archive tarball to be created"
     default: ${{ github.event.repository.name }}-${{ github.ref_name }}.tar.gz
     required: true
+  upload-artifacts:
+    description: "If the artifacts should be uploaded to GitHub"
+    required: true
+    default: true
 runs:
   using: "composite"
   steps:
@@ -35,3 +39,12 @@ runs:
         mkdir -pv $(dirname ${{ inputs.archive-file }})
         touch ${{ inputs.archive-file }}
         tar -vczf ${{ inputs.archive-file }} --exclude=${{ inputs.archive-file }} --transform 's,^\.,${{ inputs.revision }},' .
+
+
+    - name: GitHub - Upload artifacts
+      uses: softprops/action-gh-release@v2
+      if: {{ inputs.upload-artifacts }}
+      with:
+        files: |
+          ${{ inputs.archive-file }}
+            doc/manual.pdf
