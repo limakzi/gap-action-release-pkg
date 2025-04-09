@@ -31,5 +31,6 @@ runs:
     - name: Build an archive tarball
       shell: bash
       run: |
+        mkdir -pv $(dirname ${{ inputs.archive-file }})
         touch ${{ inputs.archive-file }}
         tar -czf ${{ inputs.archive-file }} --exclude=${{ inputs.archive-file }} --transform 's,^\.,${{ inputs.revision }},' .
