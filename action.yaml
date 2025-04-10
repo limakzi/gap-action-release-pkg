@@ -34,7 +34,7 @@ runs:
     - name: Generate PackageJson.g
       shell: bash
       run: |
-        gap -r {{ github.action_path }}/packageinfo_to_json.g
+        gap -r ${{ github.action_path }}/packageinfo_to_json.g
 
     - name: Build an archive tarball
       shell: bash
